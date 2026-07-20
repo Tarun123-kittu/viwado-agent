@@ -1,0 +1,19 @@
+import logging
+import sys
+
+import structlog
+
+
+def configure_logging() -> None:
+    """Configure application logging."""
+
+    logging.basicConfig(
+        format="%(message)s",
+        stream=sys.stdout,
+        level=logging.INFO,
+    )
+
+    structlog.configure(
+        wrapper_class=structlog.make_filtering_bound_logger(logging.INFO),
+        logger_factory=structlog.PrintLoggerFactory(),
+    )
