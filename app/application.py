@@ -5,6 +5,7 @@ from app.core.config import get_settings
 from app.core.lifespan import lifespan
 from app.core.exceptions.base import AppException
 from app.core.exceptions.handlers import app_exception_handler
+from app.api.middleware.request_id import RequestIDMiddleware
 
 
 def create_app() -> FastAPI:
@@ -28,5 +29,7 @@ def create_app() -> FastAPI:
         AppException,
         app_exception_handler,
     )
+
+    app.add_middleware(RequestIDMiddleware)
 
     return app
