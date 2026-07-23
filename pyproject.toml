@@ -7,8 +7,11 @@ requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.139.2",
     "httpx>=0.28.1",
+    "ollama>=0.6.2",
     "pydantic-settings>=2.14.2",
     "python-dotenv>=1.2.2",
+    "qdrant-client>=1.18.0",
+    "redis>=8.0.1",
     "structlog>=26.1.0",
     "uvicorn>=0.51.0",
 ]
